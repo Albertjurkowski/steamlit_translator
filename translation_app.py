@@ -7,8 +7,9 @@ st.write(
     "z wykorzystaniem modelu z Hugging Face. Wpisz tekst po angielsku i kliknij **Przetłumacz**."
 )
 
+@st.cache_resource
 def load_translator():
-    return pipeline("translation_en_to_de")
+    return pipeline("translation_en_to_de", model="t5-base")
 
 
 text = st.text_area("Tekst po angielsku")
